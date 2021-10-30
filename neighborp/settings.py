@@ -18,7 +18,7 @@ import cloudinary
 from decouple import config,Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -42,10 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'jiraniapp.apps.JiraniappConfig',
     'tinymce',
     'bootstrap5',
     'django_registration',
-    'jiraniapp',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -84,7 +85,6 @@ WSGI_APPLICATION = 'neighborp.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 MODE=config("MODE", default="dev")
-SECRET_KEY = config('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', False)
 # development
 if config('MODE')=="dev":
