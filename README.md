@@ -3,7 +3,7 @@
  #### Caleb Kipngetich.
 
 ### Project Description
- ***Website for ordering and delivering your favourite type of Pizza and size the customers need which you get the price of your order.***
+ --web application that helps us know what is happening within our neighborhood by neighbors posting what is happening within.
 
 
 ### Setup Requirements
@@ -33,5 +33,4 @@
  ### LICENSE
  . Under MIT LICENSE
 #### &copy;2021 Caleb Kipngetich.
-## lic pic
-![Home](jiraniapp/asset/MIT.png)
+
