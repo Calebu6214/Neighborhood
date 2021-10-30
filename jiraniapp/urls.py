@@ -14,6 +14,7 @@ urlpatterns = [
     path('health',views.health, name='health'),
     path('authorities',views.authorities, name='authorities'),
     path('search/',views.search_results, name='search_results'),
+    path('notifications',views.notification, name='notifications'),
     
 ]
 

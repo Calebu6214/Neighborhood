@@ -122,3 +122,11 @@ def authorities(request):
     authorities = Authorities.objects.filter(neighbourhood=profile.neighbourhood)
 
     return render(request,'autho.html',{"authorities":authorities})
+
+@login_required(login_url='/accounts/login/')
+def notification(request):
+    current_user=request.user
+    profile=Profile.objects.get(username=current_user)
+    all_notifications = notifications.objects.filter(neighbourhood=profile.neighbourhood)
+
+    return render(request,'notification.html',{"notifications":all_notifications})
