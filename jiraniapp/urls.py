@@ -15,6 +15,7 @@ urlpatterns = [
     path('authorities',views.authorities, name='authorities'),
     path('search/',views.search_results, name='search_results'),
     path('notifications',views.notification, name='notifications'),
+    path('new/notification',views.new_notification, name='new-notification'),
     
 ]
 

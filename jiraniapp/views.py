@@ -130,3 +130,24 @@ def notification(request):
     all_notifications = notifications.objects.filter(neighbourhood=profile.neighbourhood)
 
     return render(request,'notification.html',{"notifications":all_notifications})
+
+@login_required(login_url='/accounts/login/')
+def new_notification(request):
+    current_user=request.user
+    profile =Profile.objects.get(username=current_user)
+
+    if request.method=="POST":
+        form =notificationsForm(request.POST,request.FILES)
+        if form.is_valid():
+            notification = form.save(commit = False)
+            notification.author = current_user
+            notification.neighbourhood = profile.neighbourhood
+            notification.save()           
+
+        return redirect('/notifications')
+
+
+    else:
+        form = notificationsForm()
+
+    return render(request,'notification_forms.html',{"form":form})
