@@ -78,3 +78,31 @@ def search_results(request):
     else:
         message="You haven't searched for any term"
         return render(request,'search.html',{"message":message})
+
+@login_required(login_url='/accounts/login/')
+def businesses(request):
+    current_user=request.user
+    profile=Profile.objects.get(username=current_user)
+    businesses = Business.objects.filter(neighbourhood=profile.neighbourhood)
+
+    return render(request,'businesses.html',{"businesses":businesses})
+
+@login_required(login_url='/accounts/login/')
+def new_business(request):
+    current_user=request.user
+    profile =Profile.objects.get(username=current_user)
+
+    if request.method=="POST":
+        form =BusinessForm(request.POST,request.FILES)
+        if form.is_valid():
+            business = form.save(commit = False)
+            business.owner = current_user
+            business.neighbourhood = profile.neighbourhood
+            business.save()
+
+        return HttpResponseRedirect('businesses')
+
+    else:
+        form = BusinessForm()
+
+    return render(request,'business_form.html',{"form":form})

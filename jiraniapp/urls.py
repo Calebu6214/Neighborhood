@@ -9,6 +9,8 @@ urlpatterns = [
     path('user/(?P<username>\w{0,50})',views.user_profile,name='user-profile'),
     path('create/profile',views.create_profile, name='create-profile'),    
     path('update/profile',views.update_profile, name='update-profile'),
+    path('business',views.businesses, name='business'),
+    path('new/business',views.new_business, name='new-business'),
     
 ]
 
