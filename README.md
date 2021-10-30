@@ -32,5 +32,7 @@
 
  ### LICENSE
  . Under MIT LICENSE
-#### &copy;2021 Caleb Kipngetich.
 
+![MIT](jiraniapp/asset/MIT.png)
+
+#### &copy;2021 Caleb Kipngetich.
