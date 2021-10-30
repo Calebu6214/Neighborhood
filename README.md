@@ -24,7 +24,7 @@
 #### Technologies Used;
     - HTML
     - CSS and Bootstrap 
-    - Django-3.2.8
+    - Python(Django-3.2.8)
     -Javascript
 
 ### CONTACT
